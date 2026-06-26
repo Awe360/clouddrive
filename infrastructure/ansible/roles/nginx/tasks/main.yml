@@ -1,0 +1,32 @@
+---
+- name: Install Nginx web server
+  apt:
+    name: nginx
+    state: present
+
+- name: Create Nginx configuration site file from template
+  template:
+    src: clouddrive.conf.j2
+    dest: /etc/nginx/sites-available/clouddrive
+    mode: '0644'
+
+- name: Enable CloudDrive site config in Nginx
+  file:
+    src: /etc/nginx/sites-available/clouddrive
+    dest: /etc/nginx/sites-enabled/clouddrive
+    state: link
+
+- name: Remove default enabled Nginx site config
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+
+- name: Test Nginx configuration profile
+  command: nginx -t
+  changed_when: false
+
+- name: Ensure Nginx is running and enabled on boot
+  service:
+    name: nginx
+    state: restarted
+    enabled: yes

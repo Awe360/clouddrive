@@ -1,0 +1,62 @@
+# ============================================================
+# CloudDrive — .gitignore
+# ============================================================
+
+# ─── Node.js ──────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+
+# ─── Environment Variables ─────────────────────────────────
+# NEVER commit .env files — they contain secrets
+.env
+.env.local
+.env.*.local
+backend/.env
+frontend/.env
+
+# ─── Frontend Build ────────────────────────────────────────
+frontend/dist/
+frontend/build/
+
+# ─── Terraform ─────────────────────────────────────────────
+# State files contain sensitive info (RDS endpoints, IPs)
+infrastructure/terraform/.terraform/
+infrastructure/terraform/terraform.tfstate
+infrastructure/terraform/terraform.tfstate.backup
+infrastructure/terraform/.terraform.lock.hcl
+
+# Terraform variable files often contain real secrets
+infrastructure/terraform/terraform.tfvars
+infrastructure/terraform/environments/*/terraform.tfvars
+
+# Terraform crash log
+crash.log
+
+# ─── SSH Keys ──────────────────────────────────────────────
+*.pem
+*.ppk
+id_rsa
+id_rsa.pub
+clouddrive.pem
+
+# ─── OS Files ──────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+desktop.ini
+
+# ─── IDE ───────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ─── Logs ──────────────────────────────────────────────────
+logs/
+*.log

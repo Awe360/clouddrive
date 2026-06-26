@@ -1,0 +1,12 @@
+# ==========================================================
+# CloudDrive Terraform Variables Configuration Example
+# Copy this file to "terraform.tfvars" and edit values.
+# ==========================================================
+
+aws_region      = "us-east-1"
+environment     = "dev"
+db_username     = "admin"
+db_password     = "YourSecurePassword123!"  # Replace with a strong password (minimum 8 characters)
+key_pair_name   = "clouddrive"              # Must match the name of your AWS Key Pair in the EC2 Console
+create_alb      = false                     # Set to true to create ALB (Note: ALB is not covered under AWS Free Tier)
+allowed_ssh_cidr = "0.0.0.0/0"               # Replace with your local machine's IP (e.g. "203.0.113.50/32") for security

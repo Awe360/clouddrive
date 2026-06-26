@@ -1,0 +1,17 @@
+---
+- name: Update apt cache and upgrade system packages
+  apt:
+    update_cache: yes
+    upgrade: dist
+    cache_valid_time: 3600
+
+- name: Install required basic development tools
+  apt:
+    name:
+      - git
+      - curl
+      - unzip
+      - build-essential
+      - python3-pip
+      - mysql-client
+    state: present

@@ -1,0 +1,25 @@
+---
+- name: Deploy CloudDrive SaaS application to EC2
+  hosts: ec2
+  become: yes
+  gather_facts: yes
+
+  vars:
+    # Set these dynamically or in group_vars
+    repo_url: "https://github.com/Awe360/clouddrive.git"
+    app_dir: "/var/www/clouddrive"
+    node_version: "20"
+    db_host: "REPLACE_WITH_RDS_ENDPOINT"
+    db_user: "admin"
+    db_password: "REPLACE_WITH_RDS_PASSWORD"
+    db_name: "clouddrive"
+    s3_bucket: "REPLACE_WITH_S3_BUCKET_NAME"
+    aws_region: "us-east-1"
+    jwt_secret: "a-secure-256-bit-session-signing-token"
+
+  roles:
+    - common
+    - nodejs
+    - nginx
+    - pm2
+    - app
