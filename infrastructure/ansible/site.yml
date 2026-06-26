@@ -11,7 +11,7 @@
     node_version: "20"
     db_host: "REPLACE_WITH_RDS_ENDPOINT"
     db_user: "admin"
-    db_password: "REPLACE_WITH_RDS_PASSWORD"
+    db_password: "12345678"
     db_name: "clouddrive"
     s3_bucket: "REPLACE_WITH_S3_BUCKET_NAME"
     aws_region: "us-east-1"
